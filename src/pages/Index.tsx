@@ -43,11 +43,19 @@ const Index = () => {
   };
   
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-timer-background to-timer-background/80">
+    <div 
+      className="min-h-screen w-full flex flex-col items-center justify-center transition-all duration-500"
+      style={{ 
+        background: `linear-gradient(to bottom right, var(--timer-background-start), var(--timer-background-end))` 
+      }}
+    >
       <ThemeToggle />
       
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
-        <h1 className="text-xl md:text-2xl font-light text-timer-text/80 mb-12">
+        <h1 
+          className="text-xl md:text-2xl font-light mb-12 transition-colors duration-500"
+          style={{ color: 'var(--timer-text)' }}
+        >
           Time to go
         </h1>
         

@@ -32,9 +32,21 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     return () => clearInterval(intervalId);
   }, [targetDate]);
 
+  const textColorStyle = { 
+    color: 'var(--timer-text, #ffffff)'
+  };
+  
+  const textFadedStyle = { 
+    color: 'var(--timer-text, #ffffff)', 
+    opacity: 0.7
+  };
+
   if (!isActive) {
     return (
-      <div className="flex flex-col items-center justify-center text-timer-text opacity-50 theme-transition">
+      <div 
+        className="flex flex-col items-center justify-center opacity-50 transition-all duration-500"
+        style={textColorStyle}
+      >
         <p className="text-xl mb-4">Please set a target time</p>
         <p className="text-sm">Use the form in the bottom right or add "?time=3:30PM" to the URL</p>
       </div>
@@ -42,31 +54,65 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center theme-transition">
+    <div className="flex flex-col items-center justify-center transition-all duration-500">
       <div className="flex items-center space-x-2 md:space-x-4">
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
+          <div 
+            className="text-5xl md:text-8xl lg:text-9xl font-bold animate-pulse-subtle transition-all duration-500"
+            style={textColorStyle}
+          >
             {formatTimeUnit(timeLeft.hours)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">HOURS</div>
+          <div 
+            className="text-xs md:text-sm mt-2 transition-all duration-500"
+            style={textFadedStyle}
+          >
+            HOURS
+          </div>
         </div>
         
-        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text theme-transition">:</div>
+        <div 
+          className="text-4xl md:text-7xl lg:text-8xl font-bold transition-all duration-500"
+          style={textColorStyle}
+        >
+          :
+        </div>
         
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
+          <div 
+            className="text-5xl md:text-8xl lg:text-9xl font-bold animate-pulse-subtle transition-all duration-500"
+            style={textColorStyle}
+          >
             {formatTimeUnit(timeLeft.minutes)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">MINUTES</div>
+          <div 
+            className="text-xs md:text-sm mt-2 transition-all duration-500"
+            style={textFadedStyle}
+          >
+            MINUTES
+          </div>
         </div>
         
-        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text theme-transition">:</div>
+        <div 
+          className="text-4xl md:text-7xl lg:text-8xl font-bold transition-all duration-500"
+          style={textColorStyle}
+        >
+          :
+        </div>
         
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
+          <div 
+            className="text-5xl md:text-8xl lg:text-9xl font-bold animate-pulse-subtle transition-all duration-500"
+            style={textColorStyle}
+          >
             {formatTimeUnit(timeLeft.seconds)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">SECONDS</div>
+          <div 
+            className="text-xs md:text-sm mt-2 transition-all duration-500"
+            style={textFadedStyle}
+          >
+            SECONDS
+          </div>
         </div>
       </div>
     </div>

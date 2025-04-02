@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Palette } from "lucide-react";
@@ -7,50 +8,74 @@ import { useToast } from "@/components/ui/use-toast";
 const themes = [
   {
     name: "Midnight Blue",
-    background: "bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]",
-    text: "text-white",
+    background: {
+      from: "#0f2027",
+      to: "#2c5364"
+    },
+    text: "white",
     accent: "#33C3F0"
   },
   {
     name: "Sunset Vibes",
-    background: "bg-gradient-to-br from-[#ff9966] to-[#ff5e62]",
-    text: "text-gray-900",
+    background: {
+      from: "#ff9966",
+      to: "#ff5e62"
+    },
+    text: "#1A1F2C",
     accent: "#2C3E50"
   },
   {
     name: "Emerald Dream",
-    background: "bg-gradient-to-br from-[#134E5E] to-[#71B280]",
-    text: "text-white",
+    background: {
+      from: "#134E5E",
+      to: "#71B280"
+    },
+    text: "white",
     accent: "#F39C12"
   },
   {
     name: "Twilight Purple",
-    background: "bg-gradient-to-br from-[#4A00E0] to-[#8E2DE2]",
-    text: "text-white",
+    background: {
+      from: "#4A00E0",
+      to: "#8E2DE2"
+    },
+    text: "white",
     accent: "#FFC300"
   },
   {
     name: "Peachy Dawn",
-    background: "bg-gradient-to-br from-[#F2994A] to-[#F2C94C]",
-    text: "text-gray-900",
+    background: {
+      from: "#F2994A",
+      to: "#F2C94C"
+    },
+    text: "#1A1F2C",
     accent: "#2D3436"
   },
   {
     name: "Ocean Breeze",
-    background: "bg-gradient-to-br from-[#2980B9] to-[#6DD5FA]",
-    text: "text-gray-900",
+    background: {
+      from: "#2980B9",
+      to: "#6DD5FA"
+    },
+    text: "#1A1F2C",
     accent: "#FF5252"
   },
   {
     name: "Forest Mist",
-    background: "bg-gradient-to-br from-[#3C8D2F] to-[#56Ab2F]",
-    text: "text-white",
+    background: {
+      from: "#3C8D2F",
+      to: "#56Ab2F"
+    },
+    text: "white",
     accent: "#FFD700"
   },
   {
     name: "Cherry Blossom",
-    background: "bg-gradient-to-br from-[#FFC0CB] to-[#FF69B4]",
-    text: "text-gray-900",
+    background: {
+      from: "#FFC0CB",
+      to: "#FF69B4"
+    },
+    text: "#1A1F2C",
     accent: "#6A0572"
   }
 ];
@@ -78,10 +103,14 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     // Apply theme CSS variables when theme changes
-    document.documentElement.style.setProperty('--timer-background-start', themes[themeIndex].background.split('from-')[1].split(' ')[0]);
-    document.documentElement.style.setProperty('--timer-background-end', themes[themeIndex].background.split('to-')[1]);
-    document.documentElement.style.setProperty('--timer-text', themes[themeIndex].text === "text-white" ? "#ffffff" : "#1A1F2C");
-    document.documentElement.style.setProperty('--timer-accent', themes[themeIndex].accent);
+    const root = document.documentElement;
+    const currentTheme = themes[themeIndex];
+    
+    // Apply CSS variables directly to the :root
+    root.style.setProperty('--timer-background-start', currentTheme.background.from);
+    root.style.setProperty('--timer-background-end', currentTheme.background.to);
+    root.style.setProperty('--timer-text', currentTheme.text);
+    root.style.setProperty('--timer-accent', currentTheme.accent);
     
     // Save to localStorage
     localStorage.setItem(THEME_KEY, themeIndex.toString());

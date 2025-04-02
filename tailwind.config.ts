@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,9 +63,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				timer: {
-					background: '#1A1F2C',
-					text: '#fff',
-					accent: '#33C3F0'
+					background: "var(--timer-background-start, #1A1F2C)",
+					backgroundEnd: "var(--timer-background-end, #2C3E50)",
+					text: "var(--timer-text, #fff)",
+					accent: "var(--timer-accent, #33C3F0)"
 				}
 			},
 			borderRadius: {
@@ -94,12 +94,17 @@ export default {
 				'pulse-subtle': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' },
+				},
+				'theme-transition': {
+					'0%': { opacity: '0.8' },
+					'100%': { opacity: '1' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+				'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'theme-fade': 'theme-transition 0.5s ease-out'
 			}
 		}
 	},

@@ -34,7 +34,7 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
 
   if (!isActive) {
     return (
-      <div className="flex flex-col items-center justify-center text-timer-text opacity-50">
+      <div className="flex flex-col items-center justify-center text-timer-text opacity-50 theme-transition">
         <p className="text-xl mb-4">Please set a target time</p>
         <p className="text-sm">Use the form in the bottom right or add "?time=3:30PM" to the URL</p>
       </div>
@@ -42,31 +42,31 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center theme-transition">
       <div className="flex items-center space-x-2 md:space-x-4">
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle">
+          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
             {formatTimeUnit(timeLeft.hours)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2">HOURS</div>
+          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">HOURS</div>
         </div>
         
-        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text">:</div>
+        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text theme-transition">:</div>
         
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle">
+          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
             {formatTimeUnit(timeLeft.minutes)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2">MINUTES</div>
+          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">MINUTES</div>
         </div>
         
-        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text">:</div>
+        <div className="text-4xl md:text-7xl lg:text-8xl font-bold text-timer-text theme-transition">:</div>
         
         <div className="flex flex-col items-center">
-          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle">
+          <div className="text-5xl md:text-8xl lg:text-9xl font-bold text-timer-text animate-pulse-subtle theme-transition">
             {formatTimeUnit(timeLeft.seconds)}
           </div>
-          <div className="text-xs md:text-sm text-timer-text/70 mt-2">SECONDS</div>
+          <div className="text-xs md:text-sm text-timer-text/70 mt-2 theme-transition">SECONDS</div>
         </div>
       </div>
     </div>

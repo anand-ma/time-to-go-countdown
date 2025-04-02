@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import CountdownTimer from "@/components/CountdownTimer";
 import TimeInput from "@/components/TimeInput";
+import ThemeToggle from "@/components/ThemeToggle";
 import { parseTimeStringToDate } from "@/utils/timeUtils";
 
 const Index = () => {
@@ -43,6 +44,8 @@ const Index = () => {
   
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-timer-background to-timer-background/80">
+      <ThemeToggle />
+      
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
         <h1 className="text-xl md:text-2xl font-light text-timer-text/80 mb-12">
           Time to go

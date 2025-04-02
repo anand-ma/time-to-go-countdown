@@ -34,8 +34,10 @@ const TimeInput = ({ onTimeSet }: TimeInputProps) => {
     e.preventDefault();
     
     // Convert to correct format for the URL (e.g., "3:30PM")
-    let hoursValue = hours;
-    const formattedTime = formatTime(period === "PM" && hours < 12 ? hours + 12 : period === "AM" && hours === 12 ? 0 : hours, minutes);
+    const formattedTime = formatTime(
+      period === "PM" && hours < 12 ? hours + 12 : period === "AM" && hours === 12 ? 0 : hours, 
+      minutes
+    );
     
     onTimeSet(formattedTime);
     setIsOpen(false);
@@ -48,7 +50,7 @@ const TimeInput = ({ onTimeSet }: TimeInputProps) => {
           <Button 
             variant="outline" 
             size="sm" 
-            className="bg-timer-accent/20 text-timer-text border-timer-accent/30 hover:bg-timer-accent/30"
+            className="bg-timer-accent/20 text-timer-text border-timer-accent/30 hover:bg-timer-accent/30 theme-transition"
           >
             <Clock className="h-4 w-4 mr-2" />
             Set Time

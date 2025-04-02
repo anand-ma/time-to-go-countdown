@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,20 +36,19 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Default theme colors */
+    --timer-background-start: #1A1F2C;
+    --timer-background-end: #2C3E50;
+    --timer-text: #fff;
+    --timer-accent: #33C3F0;
   }
 
   .dark {
@@ -97,5 +97,17 @@
 
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.5s ease;
+  }
+  
+  .theme-transition {
+    transition: all 0.5s ease;
+  }
+}
+
+/* Additional utility classes */
+@layer utilities {
+  .bg-gradient-theme {
+    background: linear-gradient(to bottom right, var(--timer-background-start), var(--timer-background-end));
   }
 }
